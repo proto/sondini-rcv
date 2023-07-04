@@ -17,13 +17,17 @@ radio.onReceivedValue(function (name, value) {
     serial.writeValue("" + id + ":" + name, value)
     datalogger.log(
     datalogger.createCV("name", name),
+    datalogger.createCV("temp", value),
+    datalogger.createCV("lum", value),
     datalogger.createCV("h2o", value)
     )
 })
 let id = 0
-radio.setGroup(47)
+radio.setGroup(77)
 led.setBrightness(15)
 datalogger.setColumnTitles(
 "name",
+"temp",
+"lum",
 "h2o"
 )
