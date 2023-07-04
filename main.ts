@@ -13,11 +13,7 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
 radio.onReceivedValue(function (name, value) {
     id = radio.receivedPacket(RadioPacketProperty.SerialNumber)
     serial.writeValue("" + id + ":" + name, value)
-    datalogger.log(
-    datalogger.createCV("temp", value),
-    datalogger.createCV("lum", value),
-    datalogger.createCV("h2o", value)
-    )
+    datalogger.log(datalogger.createCV(name, value))
 })
 let id = 0
 radio.setGroup(77)
