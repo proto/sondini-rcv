@@ -12,11 +12,8 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
 })
 radio.onReceivedValue(function (name, value) {
     id = radio.receivedPacket(RadioPacketProperty.SerialNumber)
-    basic.showString("" + name + ":")
-    basic.showNumber(value)
     serial.writeValue("" + id + ":" + name, value)
     datalogger.log(
-    datalogger.createCV("name", name),
     datalogger.createCV("temp", value),
     datalogger.createCV("lum", value),
     datalogger.createCV("h2o", value)
@@ -24,9 +21,7 @@ radio.onReceivedValue(function (name, value) {
 })
 let id = 0
 radio.setGroup(77)
-led.setBrightness(15)
 datalogger.setColumnTitles(
-"name",
 "temp",
 "lum",
 "h2o"
